@@ -1,0 +1,61 @@
+<div class="lg:h-[80vh] bg-[#8db5e7] border-8 border-[#ef4444] gap-2 rounded-xl overflow-auto p-3 lg:grid grid-cols-3 grid-rows-2 overflow-y-auto">
+  @if(pokemon){
+    <div [style]="pokemon | pokemonbg" class="p-5 rounded-lg border-2 border-gray-400 box-content m-2">
+      <div class="p-5 rounded-lg">
+        <img class="object-contain w-[90%] h-[60%] lg:h-auto lg:w-auto mx-auto" src="{{pokemon.sprites.front_default}}" alt="">
+      <p class="font-semibold text-center">{{pokemon.name | titlecase}}</p>
+      <p class="text-center"><span class="font-semibold">Type: </span>
+      @for (type of pokemon.types; track $index) {
+        <span>{{type.type.name | titlecase}} </span>
+      }
+      </p>
+      <p class="text-center">{{pokemon | typeDescription}}</p>
+      </div>
+    </div>
+    <div class="col-span-2 rounded-lg [&>div]:bg-[#fefefe] [&>div]:p-3 [&>div]:border-b-2 m-2 flex-col h-full overflow-x-auto">
+      <div class="rounded-t-lg">
+        <p>XP base: <span>{{pokemon.base_experience}}</span></p>
+      </div>
+      <div>
+        <p>Altura: <span>{{pokemon.height}}</span></p>
+      </div>
+      <div>
+        <p>Peso: <span>{{pokemon.weight}}</span></p>
+      </div>
+      <div>
+        <p>Nº: <span>{{pokemon.order}}</span></p>
+      </div>
+      <div [style]="pokemon | pokemonbg" class="rounded-b-lg">
+        <div>
+          <p>Habilities</p>
+        </div>
+        <div class="border-b-0 flex-col grow">
+          @for (ability of pokemon.abilities; track $index) {
+            <div>
+              <p><span class="font-semibold">{{ability.ability.name | titlecase}}</span></p>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+    <div class="m-2 bg-[#fefefe] rounded-lg p-3 overflow-x-auto flex flex-col justify-between">
+      <p class="text-center text-2xl font-bold">Stats</p>
+      @for (stat of pokemon.stats; track $index) {
+        <div class="flex justify-between">
+          <p>{{stat.stat.name |titlecase}}</p>
+          <p>{{stat.base_stat}}</p>
+        </div>
+      }
+    </div>
+    <div class="m-2 bg-[#fefefe] rounded-lg col-span-2 p-3 overflow-x-auto">
+      <p class="text-center text-2xl font-bold">Moves</p>
+      <div class="grid grid-cols-3 gap-2">
+        @for (move of pokemon.moves; track $index) {
+          <div class="flex justify-between rounded-full p-2" [style]="$index%2==0?(pokemon | pokemonbg):''">
+            <p>{{move.move.name |titlecase}}</p>
+          </div>
+        }
+      </div>
+    </div>
+  }
+</div>

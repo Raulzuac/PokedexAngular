@@ -1,0 +1,23 @@
+<div class="grid grid-cols-2 h-[80vh] border-8 border-[#ef4444] bg-[#ef4444] mb-10 lg:mb-0">
+  <div class="flex h-[5vh] m-3">
+    <button
+      routerLink="/pokedex/info"
+      class="mx-auto my-auto border p-3 rounded-lg min-w-[30vw] lg:min-w-[10vw] border-black shadow-md bg-white">Pokedex</button>
+  </div>
+  <div class="flex h-[5vh] m-3 ">
+    <button
+      routerLink="/pokedex/items"
+      class="mx-auto my-auto border p-3 rounded-lg min-w-[30vw] lg:min-w-[10vw] border-black shadow-md bg-white">Items</button>
+  </div>
+  <div class="col-span-2 h-[73vh] overflow-scroll overflow-x-hidden m-3">
+    @for (pokemon of pokemons; track $index) {
+
+      <div class="flex h-12 m-2">
+        <button
+          routerLink="/pokedex/pokemon/{{$index+1}}"
+          class="mx-auto my-auto border p-3 rounded-lg min-w-full border-black shadow-md bg-white">{{pokemon.name | titlecase}}</button>
+      </div>
+    }
+
+  </div>
+</div>

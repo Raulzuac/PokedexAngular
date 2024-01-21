@@ -1,0 +1,18 @@
+<div class="h-full bg-[#8db5e7] border-8 border-[#ef4444] rounded-xl overflow-auto lg:grid grid-cols-4 grid-rows-4">
+  <div class="row-start-2 row-span-2 col-start-2 col-span-2 bg-[#fefefe] rounded-lg grid grid-cols-3">
+    <div class="col-span-2 p-3">
+      <div class="flex flex-col justify-center align-middle">
+        <img class="w-[40%] h-[40%] m-auto lg:mt-[2em]" src="{{Item?.sprites?.default}}" alt="">
+        <p class="text-center text-2xl font-bold">{{Item?.name | titlecase}}</p>
+        @if (Item) {
+          <p class="text-center">{{Item!.effect_entries[0].effect}}</p>
+        }
+      </div>
+    </div>
+    <div class="flex-col flex justify-evenly align-middle [&>button]:bg-[#8db5e7] [&>button]:rounded-full [&>button]:m-3 [&>button]:p-2 pe-5
+      [&>button]:border-2 [&>button]:border-[#49698f]  [&>button]:shadow-md [&>button]:shadow-[#8db5e7]]">
+      <button (click)="previousItem()" class="align-middle hover:bg-[#49698f] hover:text-[#fefefe] w-[3em] h-[3em] lg:w-auto"><< <span class="invisible lg:visible">Previous</span></button>
+      <button (click)="nextItem()" class="align-middle hover:bg-[#49698f] hover:text-[#fefefe] w-[3em] h-[3em] lg:w-auto">>> <span class="invisible lg:visible">Next</span></button>
+    </div>
+  </div>
+</div>

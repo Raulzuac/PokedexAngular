@@ -1,0 +1,33 @@
+p {
+  animation: 0.3s ghost linear infinite;
+}
+
+img{
+  animation: 2s disapear linear infinite;
+}
+
+@keyframes ghost {
+  0% {
+    text-shadow: red -4px 0, cyan 4px 0;
+  }
+
+  30% {
+    text-shadow: red 4px 0, cyan -4px 0;
+  }
+
+  100% {
+    text-shadow: red -4px 0, cyan 4px 0;
+  }
+}
+
+@keyframes disapear{
+  0%{
+    opacity: 1;
+  }
+  50%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
