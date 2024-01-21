@@ -2,6 +2,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.1.
 
+App created for DII, the app has some special behabiour, from monday to friday it has a loading delay of 2 seconds, 5 on saturday and it completely doesnt works on sundays
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
